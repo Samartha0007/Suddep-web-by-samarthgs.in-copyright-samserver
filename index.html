@@ -22,11 +22,45 @@
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
-        /* Floating heart animation */
+        /* Like Button Styles */
+        .like-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: #ff3a5e;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 58, 94, 0.3);
+        }
+        
+        .like-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 58, 94, 0.4);
+        }
+        
+        .like-button:active {
+            transform: translateY(1px);
+        }
+        
+        .like-button.liked {
+            background-color: #ff3a5e;
+        }
+        
+        .like-count {
+            font-size: 1rem;
+            margin-left: 0.3rem;
+        }
+        
+        /* Animations */
         .floating-heart {
             position: absolute;
             font-size: 1.5rem;
-            color: #ff0000;
+            color: #ff3a5e;
             pointer-events: none;
             animation: floatUp 1.5s ease-out forwards;
             z-index: 1000;
@@ -37,7 +71,6 @@
             100% { transform: translateY(-100px); opacity: 0; }
         }
         
-        /* Ripple effect */
         .ripple {
             position: absolute;
             border-radius: 50%;
@@ -51,7 +84,6 @@
             to { transform: scale(4); opacity: 0; }
         }
         
-        /* Shake animation */
         .shake {
             animation: shake 0.5s;
         }
@@ -88,8 +120,9 @@
                     <h3 class="home__education">Content Creator & Gamer</h3>
 
                     <div class="home__buttons">
-                        <button id="likeButton" onclick="likePost()" class="button button--ghost">
-                            <i class='bx bxl-youtube'></i> <span id="likeCount">300K+</span> Views
+                        <button id="likeButton" class="like-button">
+                            <i class='bx bxs-heart'></i>
+                            <span class="like-count" id="likeCount">0</span>
                         </button>
                     </div>
                 </div>
@@ -265,7 +298,7 @@
         // Fetch initial like count before setting up real-time updates    
         get(likeRef).then((snapshot) => {    
             if (snapshot.exists()) {    
-                document.getElementById("likeCount").innerText = formatNumber(snapshot.val()) + "+";    
+                document.getElementById("likeCount").innerText = formatNumber(snapshot.val());    
             }    
         });    
 
@@ -273,7 +306,7 @@
         onValue(likeRef, (snapshot) => {    
             const likes = snapshot.val();    
             if (likes !== null) {    
-                document.getElementById("likeCount").innerText = formatNumber(likes) + "+";    
+                document.getElementById("likeCount").innerText = formatNumber(likes);    
             }    
         });    
 
@@ -289,17 +322,20 @@
                     likeButton.classList.remove("shake");    
                 }, 500);    
 
-                alert("Oops! You've already liked ❤️‍🔥 Thanks for your support! 🙌😊");    
+                alert("You've already liked this! ❤️ Thank you for your support! 😊");    
                 return;    
             }    
 
             // Store in local storage to prevent multiple likes    
             localStorage.setItem("hasLiked", "true");    
 
+            // Add liked class for visual feedback
+            likeButton.classList.add("liked");
+
             // Create floating heart animation    
             const heart = document.createElement("div");    
             heart.classList.add("floating-heart");    
-            heart.innerHTML = "+1 ❤️‍🔥";    
+            heart.innerHTML = "❤️";    
 
             // Position the heart above the button    
             const rect = likeButton.getBoundingClientRect();    
@@ -323,7 +359,7 @@
                 return (currentLikes || 0) + 1;    
             })    
             .then(({ snapshot }) => {    
-                likeCountSpan.textContent = formatNumber(snapshot.val()) + "+";    
+                likeCountSpan.textContent = formatNumber(snapshot.val());    
                 likeButton.disabled = false;    
             })    
             .catch((error) => {    
@@ -347,7 +383,10 @@
             setTimeout(() => {    
                 ripple.remove();    
             }, 600); // Remove after animation    
-        }    
+        }
+
+        // Attach click event to like button
+        document.getElementById('likeButton').addEventListener('click', likePost);
     </script>    
 
     <!--=============== MAIN JS ===============-->
