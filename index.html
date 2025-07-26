@@ -31,7 +31,6 @@
         <nav class="nav container">
             <a href="#" class="nav__logo">Sudeep</a>
 
-           
             <!-- Theme change button -->
             <i class='bx bx-moon change-theme change-theme-button' id="theme-button"></i>
         </nav>
@@ -48,7 +47,7 @@
                     <h3 class="home__education">Boli maga</h3>
 
                     <div class="home__buttons">
-                        <a download="" href=sudiatsamserver.jpg" class="button button--ghost">
+                        <a download="" href="sudiatsamserver.jpg" class="button button--ghost">
                             LIKE
                         </a>
                     </div>
@@ -86,34 +85,31 @@
                 <img src="sudiatsamserver.jpg" alt="" class="about__img">
 
                 <div class="about__data">
-    <div class="about__info">
-        <a href="https://youtube.com/yourchannel" target="_blank" class="about__box-link">
-            <div class="about__box">
-                <i class='bx bx-youtube about__icon'></i>
-                <h3 class="about__title">YouTube Views</h3>
-                <span class="about__subtitle">1,250,000+</span>
-            </div>
-        </a>
-        
-        <a href="https://youtube.com/yourchannel" target="_blank" class="about__box-link">
-            <div class="about__box">
-                <i class='bx bx-user-plus about__icon'></i>
-                <h3 class="about__title">Subscribers</h3>
-                <span class="about__subtitle">25,000+</span>
-            </div>
-        </a>
-        
-        <a href="https://instagram.com/yourprofile" target="_blank" class="about__box-link">
-            <div class="about__box">
-                <i class='bx bx-instagram about__icon'></i>
-                <h3 class="about__title">Instagram</h3>
-                <span class="about__subtitle">50,000+</span>
-            </div>
-        </a>
-    </div>
-</div>
+                    <div class="about__info">
+                        <a href="https://youtube.com/@KARUNADU_ESPORTS" target="_blank" class="about__box">
+                            <i class='bx bxl-youtube about__icon'></i>
+                            <div>
+                                <h3 class="about__title">YouTube Views</h3>
+                                <span class="about__subtitle">1,250,000+</span>
+                            </div>
+                        </a>
 
+                        <a href="https://youtube.com/@KARUNADU_ESPORTS" target="_blank" class="about__box">
+                            <i class='bx bxs-user-account about__icon'></i>
+                            <div>
+                                <h3 class="about__title">Subscribers</h3>
+                                <span class="about__subtitle">25,000+</span>
+                            </div>
+                        </a>
 
+                        <a href="#" target="_blank" class="about__box">
+                            <i class='bx bxl-instagram about__icon'></i>
+                            <div>
+                                <h3 class="about__title">Instagram</h3>
+                                <span class="about__subtitle">50,000+</span>
+                            </div>
+                        </a>
+                    </div>
 
                     <p class="about__description">
                         Hello, I'm Sudeep
@@ -250,11 +246,13 @@
         // About section animations
         sr.reveal(`.section__subtitle, .section__title`, {origin: 'left'})
         sr.reveal(`.about__img`, {origin: 'right'})
-        sr.reveal(`.about__data`, {delay: 600})
+        sr.reveal(`.about__info`, {delay: 500})
+        sr.reveal(`.about__description`, {delay: 600})
+        sr.reveal(`.about__button-contact`, {delay: 700})
 
         // Contact section animations
         sr.reveal(`.contact__content`, {interval: 100})
-        
+
         //=============== THEME TOGGLE ===============
         const themeButton = document.getElementById('theme-button')
         const darkTheme = 'dark-theme'
@@ -277,26 +275,6 @@
             localStorage.setItem('selected-theme', getCurrentTheme())
             localStorage.setItem('selected-icon', getCurrentIcon())
         })
-
-        //=============== ACTIVE LINK ===============
-        const sections = document.querySelectorAll('section[id]')
-        
-        function scrollActive(){
-            const scrollY = window.pageYOffset
-
-            sections.forEach(current =>{
-                const sectionHeight = current.offsetHeight,
-                    sectionTop = current.offsetTop - 58,
-                    sectionId = current.getAttribute('id')
-
-                if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-                    document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
-                }else{
-                    document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
-                }
-            })
-        }
-        window.addEventListener('scroll', scrollActive)
     </script>
 </body>
 
