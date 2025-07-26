@@ -33,20 +33,44 @@
             color: #ff3b30;
         }
         
-        /* Remove footer background */
+        /* Footer styles */
         .footer {
             background-color: transparent;
             padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .footer__social {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer__social-link {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            transition: 0.3s;
+        }
+        
+        .footer__social-link:hover {
+            color: var(--first-color);
+            transform: translateY(-3px);
         }
         
         .footer__copy {
-            margin-top: 1rem;
             font-size: 0.9rem;
+            color: var(--text-color-light);
         }
         
         .developer-credit {
             font-size: 0.8rem;
-            margin-top: 0.5rem;
             color: var(--text-color-light);
         }
         
@@ -60,6 +84,12 @@
         .developer-credit a:hover {
             color: var(--first-color);
             text-decoration: underline;
+        }
+        
+        /* Email contact card */
+        .contact__card-email {
+            background: linear-gradient(135deg, rgba(167,137,212,0.1) 0%, rgba(255,255,255,0.1) 100%);
+            border: 1px solid rgba(255,255,255,0.2);
         }
     </style>
 
@@ -95,7 +125,7 @@
                 </div>
 
                 <div class="home__social">
-                    <a href="#" target="_blank" class="home__social-link">
+                    <a href="https://www.instagram.com/_.sudeep.h__v?igsh=MTV5ZmFwNDN6ZTN6Ng==" target="_blank" class="home__social-link">
                         <i class='bx bxl-instagram'></i>
                     </a>
                     <a href="https://www.snapchat.com/add/ssudeep20238055?share_id=U2DXuGX28Ek&locale=en-IN" target="_blank" class="home__social-link">
@@ -166,8 +196,8 @@
                         <div class="contact__card">
                             <i class='bx bxl-instagram contact__card-icon'></i>
                             <h3 class="contact__card-title">Instagram</h3>
-                            <span class="contact__card-data">@yourusername</span>
-                            <a href="#" target="_blank" class="contact__button">
+                            <span class="contact__card-data">@_.sudeep.h__v</span>
+                            <a href="https://www.instagram.com/_.sudeep.h__v?igsh=MTV5ZmFwNDN6ZTN6Ng==" target="_blank" class="contact__button">
                                 Follow <i class='bx bx-right-arrow-alt'></i>
                             </a>
                         </div>
@@ -180,6 +210,15 @@
                                 Add Me <i class='bx bx-right-arrow-alt'></i>
                             </a>
                         </div>
+                        
+                        <div class="contact__card contact__card-email">
+                            <i class='bx bxs-envelope contact__card-icon'></i>
+                            <h3 class="contact__card-title">Email</h3>
+                            <span class="contact__card-data">Sudi57593@gmail.com</span>
+                            <a href="mailto:Sudi57593@gmail.com" class="contact__button">
+                                Email Me <i class='bx bx-right-arrow-alt'></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -189,10 +228,8 @@
     <!--=============== FOOTER ===============-->
     <footer class="footer">
         <div class="footer__container container">
-            <h1 class="footer__title">Sudeep Hv</h1>
-
             <ul class="footer__social">
-                <a href="#" class="footer__social-link"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.instagram.com/_.sudeep.h__v?igsh=MTV5ZmFwNDN6ZTN6Ng==" class="footer__social-link"><i class='bx bxl-instagram'></i></a>
                 <a href="https://www.snapchat.com/add/ssudeep20238055" class="footer__social-link"><i class='bx bxl-snapchat'></i></a>
                 <a href="https://www.youtube.com/@KARUNADU_ESPORTS" class="footer__social-link"><i class='bx bxl-youtube'></i></a>
             </ul>
