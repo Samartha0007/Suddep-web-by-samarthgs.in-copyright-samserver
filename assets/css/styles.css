@@ -421,10 +421,7 @@ body.light-theme {
   transition: 0.4s;
 }
 
-.button:hover {
-  background-color: var(--first-color-alt);
-  color: var(--body-color);
-}
+
 
 .button--ghost {
   background-color: transparent;
