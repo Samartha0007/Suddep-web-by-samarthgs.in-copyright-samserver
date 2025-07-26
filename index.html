@@ -91,6 +91,28 @@
             background: linear-gradient(135deg, rgba(167,137,212,0.1) 0%, rgba(255,255,255,0.1) 100%);
             border: 1px solid rgba(255,255,255,0.2);
         }
+        
+        /* Dark theme styles */
+        body.dark-theme {
+            --first-color: #a789d4;
+            --title-color: #f1f1f1;
+            --text-color: #d1d1d1;
+            --text-color-light: #a1a1a1;
+            --body-color: #1a1a1a;
+            --container-color: #252525;
+        }
+        
+        /* Theme button */
+        .change-theme {
+            font-size: 1.25rem;
+            color: var(--title-color);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .change-theme:hover {
+            color: var(--first-color);
+        }
     </style>
 
     <title>Sudeep Hv</title>
@@ -103,7 +125,7 @@
             <a href="#" class="nav__logo">Sudeep</a>
 
             <!-- Theme change button -->
-            <i class='bx bx-moon change-theme change-theme-button' id="theme-button"></i>
+            <i class='bx bx-moon change-theme' id="theme-button"></i>
         </nav>
     </header>
 
@@ -234,10 +256,7 @@
                 <a href="https://www.youtube.com/@KARUNADU_ESPORTS" class="footer__social-link"><i class='bx bxl-youtube'></i></a>
             </ul>
 
-            <span class="footer__copy">
-                &#169; 2023 Sudeep Hv. All rights reserved.
-            </span>
-            
+           
             <div class="developer-credit">
                 Designed and developed by <a href="https://samarthags.in" target="_blank">Samarth GS</a>
             </div>
@@ -397,25 +416,32 @@
         sr.reveal('.about__description, .about__button-contact', {delay: 600});
         sr.reveal('.contact__content', {interval: 100});
 
-        // THEME TOGGLE
+        // THEME TOGGLE - FIXED VERSION
         const themeButton = document.getElementById('theme-button');
         const darkTheme = 'dark-theme';
         const iconTheme = 'bx-sun';
 
+        // Previously selected theme (if user selected)
         const selectedTheme = localStorage.getItem('selected-theme');
         const selectedIcon = localStorage.getItem('selected-icon');
 
+        // We obtain the current theme that the interface has by validating the dark-theme class
         const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
         const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'bx-moon' : 'bx-sun';
 
+        // We validate if the user previously chose a theme
         if (selectedTheme) {
+            // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
             document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
             themeButton.classList[selectedIcon === 'bx-moon' ? 'add' : 'remove'](iconTheme);
         }
 
+        // Activate / deactivate the theme manually with the button
         themeButton.addEventListener('click', () => {
+            // Add or remove the dark / icon theme
             document.body.classList.toggle(darkTheme);
             themeButton.classList.toggle(iconTheme);
+            // We save the theme and the current icon that the user chose
             localStorage.setItem('selected-theme', getCurrentTheme());
             localStorage.setItem('selected-icon', getCurrentIcon());
         });
