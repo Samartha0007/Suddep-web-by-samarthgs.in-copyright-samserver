@@ -21,79 +21,6 @@
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css">
-    <style>
-        /* Like Button Styles */
-        .like-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: #ff3a5e;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 58, 94, 0.3);
-        }
-        
-        .like-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 58, 94, 0.4);
-        }
-        
-        .like-button:active {
-            transform: translateY(1px);
-        }
-        
-        .like-button.liked {
-            background-color: #ff3a5e;
-        }
-        
-        .like-count {
-            font-size: 1rem;
-            margin-left: 0.3rem;
-        }
-        
-        /* Animations */
-        .floating-heart {
-            position: absolute;
-            font-size: 1.5rem;
-            color: #ff3a5e;
-            pointer-events: none;
-            animation: floatUp 1.5s ease-out forwards;
-            z-index: 1000;
-        }
-        
-        @keyframes floatUp {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-100px); opacity: 0; }
-        }
-        
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.7);
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            pointer-events: none;
-        }
-        
-        @keyframes ripple {
-            to { transform: scale(4); opacity: 0; }
-        }
-        
-        .shake {
-            animation: shake 0.5s;
-        }
-        
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
-        }
-    </style>
 
     <title>Sudeep Hv</title>
 </head>
@@ -120,9 +47,8 @@
                     <h3 class="home__education">Content Creator & Gamer</h3>
 
                     <div class="home__buttons">
-                        <button id="likeButton" class="like-button">
-                            <i class='bx bxs-heart'></i>
-                            <span class="like-count" id="likeCount">0</span>
+                        <button id="likeButton" class="button button--ghost">
+                            <i class='bx bxs-like'></i> <span id="likeCount">0</span>
                         </button>
                     </div>
                 </div>
@@ -328,9 +254,6 @@
 
             // Store in local storage to prevent multiple likes    
             localStorage.setItem("hasLiked", "true");    
-
-            // Add liked class for visual feedback
-            likeButton.classList.add("liked");
 
             // Create floating heart animation    
             const heart = document.createElement("div");    
