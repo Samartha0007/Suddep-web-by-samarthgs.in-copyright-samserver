@@ -19,9 +19,6 @@
     <!--=============== BOXICONS ===============-->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
-    <!--=============== SWIPER CSS ===============-->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css">
 
@@ -34,27 +31,16 @@
         <nav class="nav container">
             <a href="#" class="nav__logo">Sudeep</a>
 
-            <div class="nav__menu" id="nav-menu">
+            <div class="nav__menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">
-                            <i class='bx bx-home nav__icon'></i>
-                            <span class="nav__name">Home</span>
-                        </a>
+                        <a href="#home" class="nav__link active-link">Home</a>
                     </li>
-
                     <li class="nav__item">
-                        <a href="#about" class="nav__link">
-                            <i class='bx bx-user nav__icon'></i>
-                            <span class="nav__name">About</span>
-                        </a>
+                        <a href="#about" class="nav__link">About</a>
                     </li>
-
                     <li class="nav__item">
-                        <a href="#contact" class="nav__link">
-                            <i class='bx bx-message-square-detail nav__icon'></i>
-                            <span class="nav__name">Contact</span>
-                        </a>
+                        <a href="#contact" class="nav__link">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -221,18 +207,6 @@
         <div class="footer__container container">
             <h1 class="footer__title">Sudeep</h1>
 
-            <ul class="footer__list">
-                <li class="footer__item">
-                    <a href="#home" class="footer__link">Home</a>
-                </li>
-                <li class="footer__item">
-                    <a href="#about" class="footer__link">About</a>
-                </li>
-                <li class="footer__item">
-                    <a href="#contact" class="footer__link">Contact</a>
-                </li>
-            </ul>
-
             <ul class="footer__social">
                 <li class="footer__social-item">
                     <a href="#" target="_blank" class="footer__social-link">
@@ -260,11 +234,72 @@
     <!--=============== SCROLLREVEAL ===============-->
     <script src="https://unpkg.com/scrollreveal"></script>
 
-    <!--=============== SWIPER JS ===============-->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-
     <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
+    <script>
+        //=============== SCROLL REVEAL ANIMATION ===============
+        const sr = ScrollReveal({
+            origin: 'top',
+            distance: '60px',
+            duration: 2500,
+            delay: 400,
+            // reset: true
+        })
+
+        sr.reveal(`.home__data`)
+        sr.reveal(`.home__handle`, {delay: 700})
+        sr.reveal(`.home__social, .home__scroll`, {delay: 900, origin: 'bottom'})
+
+        // About section animations
+        sr.reveal(`.section__subtitle, .section__title`, {origin: 'left'})
+        sr.reveal(`.about__img`, {origin: 'right'})
+        sr.reveal(`.about__data`, {delay: 600})
+
+        // Contact section animations
+        sr.reveal(`.contact__content`, {interval: 100})
+        
+        //=============== THEME TOGGLE ===============
+        const themeButton = document.getElementById('theme-button')
+        const darkTheme = 'dark-theme'
+        const iconTheme = 'bx-sun'
+
+        const selectedTheme = localStorage.getItem('selected-theme')
+        const selectedIcon = localStorage.getItem('selected-icon')
+
+        const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
+        const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'bx-moon' : 'bx-sun'
+
+        if (selectedTheme) {
+            document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+            themeButton.classList[selectedIcon === 'bx-moon' ? 'add' : 'remove'](iconTheme)
+        }
+
+        themeButton.addEventListener('click', () => {
+            document.body.classList.toggle(darkTheme)
+            themeButton.classList.toggle(iconTheme)
+            localStorage.setItem('selected-theme', getCurrentTheme())
+            localStorage.setItem('selected-icon', getCurrentIcon())
+        })
+
+        //=============== ACTIVE LINK ===============
+        const sections = document.querySelectorAll('section[id]')
+        
+        function scrollActive(){
+            const scrollY = window.pageYOffset
+
+            sections.forEach(current =>{
+                const sectionHeight = current.offsetHeight,
+                    sectionTop = current.offsetTop - 58,
+                    sectionId = current.getAttribute('id')
+
+                if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+                    document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+                }else{
+                    document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+                }
+            })
+        }
+        window.addEventListener('scroll', scrollActive)
+    </script>
 </body>
 
 </html>
