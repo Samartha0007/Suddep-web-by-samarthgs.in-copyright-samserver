@@ -119,52 +119,27 @@
 
             <div class="contact__container container grid">
                 <div class="contact__content">
-                    <h3 class="contact__title">Talk to me</h3>
+                    <h3 class="contact__title">Connect with me</h3>
 
                     <div class="contact__info">
                         <div class="contact__card">
-                            <i class='bx bx-mail-send contact__card-icon'></i>
-                            <h3 class="contact__card-title">Email</h3>
-                            <span class="contact__card-data">contact@sudeep.com</span>
-                            <a href="mailto:contact@sudeep.com" class="contact__button">
-                                Write Me <i class='bx bx-right-arrow-alt'></i>
+                            <i class='bx bxl-instagram contact__card-icon'></i>
+                            <h3 class="contact__card-title">Instagram</h3>
+                            <span class="contact__card-data">@yourusername</span>
+                            <a href="#" target="_blank" class="contact__button">
+                                Follow <i class='bx bx-right-arrow-alt'></i>
                             </a>
                         </div>
 
                         <div class="contact__card">
-                            <i class='bx bxl-whatsapp contact__card-icon'></i>
-                            <h3 class="contact__card-title">WhatsApp</h3>
-                            <span class="contact__card-data">+91 XXXXX XXXXX</span>
-                            <a href="https://wa.me/91XXXXXXXXXX" class="contact__button">
-                                Message Me <i class='bx bx-right-arrow-alt'></i>
+                            <i class='bx bxl-snapchat contact__card-icon'></i>
+                            <h3 class="contact__card-title">Snapchat</h3>
+                            <span class="contact__card-data">@ssudeep20238055</span>
+                            <a href="https://www.snapchat.com/add/ssudeep20238055" target="_blank" class="contact__button">
+                                Add Me <i class='bx bx-right-arrow-alt'></i>
                             </a>
                         </div>
                     </div>
-                </div>
-
-                <div class="contact__content">
-                    <h3 class="contact__title">Write me your message</h3>
-
-                    <form class="contact__form">
-                        <div class="contact__form-div">
-                            <label class="contact__form-tag">Name</label>
-                            <input type="text" class="contact__form-input" placeholder="Enter your name">
-                        </div>
-
-                        <div class="contact__form-div">
-                            <label class="contact__form-tag">Email</label>
-                            <input type="email" class="contact__form-input" placeholder="Enter your email">
-                        </div>
-
-                        <div class="contact__form-div contact__form-area">
-                            <label class="contact__form-tag">Message</label>
-                            <textarea class="contact__form-input" placeholder="Write your message"></textarea>
-                        </div>
-
-                        <button type="submit" class="button">
-                            Send Message <i class='bx bx-send'></i>
-                        </button>
-                    </form>
                 </div>
             </div>
         </section>
@@ -196,17 +171,17 @@
         import { getDatabase, ref, onValue, runTransaction, get } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js";    
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";    
 
-        // Firebase configuration    
-        const firebaseConfig = {    
-            apiKey: "AIzaSyD6XevtiU5_5T3qsPrrgZNrcTXOUcI_jaY",    
-            authDomain: "sammu-database.firebaseapp.com",    
-            databaseURL: "https://sammu-database-default-rtdb.asia-southeast1.firebasedatabase.app",    
-            projectId: "sammu-database",    
-            storageBucket: "sammu-database.firebasestorage.app",    
-            messagingSenderId: "975899243226",    
-            appId: "1:975899243226:web:c81d3263a3e30a271a6be3",    
-            measurementId: "G-B85J29F4RB"    
-        };    
+        // Your Firebase configuration    
+        const firebaseConfig = {
+          apiKey: "AIzaSyC4xEwklz8JBGLggZNAz_G5ABiJCu3Qugo",
+          authDomain: "jggkhg-69fd4.firebaseapp.com",
+          databaseURL: "https://jggkhg-69fd4-default-rtdb.firebaseio.com",
+          projectId: "jggkhg-69fd4",
+          storageBucket: "jggkhg-69fd4.firebasestorage.app",
+          messagingSenderId: "849901272295",
+          appId: "1:849901272295:web:f2e109adca7022fc187642",
+          measurementId: "G-37QG31LX9C"
+        };
 
         // Initialize Firebase    
         const app = initializeApp(firebaseConfig);    
@@ -258,7 +233,7 @@
             // Create floating heart animation    
             const heart = document.createElement("div");    
             heart.classList.add("floating-heart");    
-            heart.innerHTML = "❤️";    
+            heart.innerHTML = "+1 ❤️‍🔥";    
 
             // Position the heart above the button    
             const rect = likeButton.getBoundingClientRect();    
