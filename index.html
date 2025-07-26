@@ -25,16 +25,42 @@
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css">
 
-    <title> Sudeep Hv </title>
+    <title>Sudeep Hv</title>
 </head>
 
 <body>
     <!--=============== HEADER ===============-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Sudeep</a>
 
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">
+                            <i class='bx bx-home nav__icon'></i>
+                            <span class="nav__name">Home</span>
+                        </a>
+                    </li>
 
-            <!--=============== theme change button ===============-->
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">
+                            <i class='bx bx-user nav__icon'></i>
+                            <span class="nav__name">About</span>
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">
+                            <i class='bx bx-message-square-detail nav__icon'></i>
+                            <span class="nav__name">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Theme change button -->
             <i class='bx bx-moon change-theme change-theme-button' id="theme-button"></i>
-
         </nav>
     </header>
 
@@ -46,14 +72,13 @@
                 <div class="home__data">
                     <span class="home__greeting">Hello, I'm</span>
                     <h1 class="home__name">Sudeep Hv</h1>
-                    <h3 class="home__education">Boli maga </h3>
+                    <h3 class="home__education">Boli maga</h3>
 
-                    <div class="home__button">
+                    <div class="home__buttons">
                         <a download="" href="assets/pdf/hailee-Cv.pdf" class="button button--ghost">
                             LIKE
                         </a>
-
-                         </div>
+                    </div>
                 </div>
 
                 <div class="home__handle">
@@ -108,9 +133,9 @@
 
                     <p class="about__description">
                         Hello, I'm Sudeep
-I'm a 17-year-old student from Repponpet, located in Shimoga district, Karnataka. I'm currently pursuing my 2nd PUC.<br><br>
-I'm a passionate content creator — a small yet dedicated gamer, YouTuber, and editor. I enjoy exploring the world of digital creativity and constantly strive to improve my skills.<br><br>
-Every day is a new opportunity to learn, grow, and create something better.
+                        I'm a 17-year-old student from Repponpet, located in Shimoga district, Karnataka. I'm currently pursuing my 2nd PUC.<br><br>
+                        I'm a passionate content creator — a small yet dedicated gamer, YouTuber, and editor. I enjoy exploring the world of digital creativity and constantly strive to improve my skills.<br><br>
+                        Every day is a new opportunity to learn, grow, and create something better.
                     </p>
 
                     <a href="#contact" class="button about__button-contact">Contact Me</a>
@@ -120,12 +145,12 @@ Every day is a new opportunity to learn, grow, and create something better.
 
         <!--=============== CONTACT ===============-->
         <section class="contact section" id="contact">
-            <sapn class="section__subtitle">Get in touch</sapn>
-            <h3 class="section__title">Contact Me</h3>
+            <span class="section__subtitle">Get in touch</span>
+            <h2 class="section__title">Contact Me</h2>
 
             <div class="contact__container container grid">
                 <div class="contact__content">
-                    <h3 class="contact__title contact__title-info">Talk to me</h3>
+                    <h3 class="contact__title">Talk to me</h3>
 
                     <div class="contact__info">
                         <div class="contact__card">
@@ -162,31 +187,30 @@ Every day is a new opportunity to learn, grow, and create something better.
                 </div>
 
                 <div class="contact__content">
-                    <h3 class="contact__title contact__title-form">Write Me your Message</h3>
+                    <h3 class="contact__title">Write me your message</h3>
 
                     <form action="" class="contact__form">
                         <div class="contact__form-div">
                             <label for="" class="contact__form-tag">Name</label>
-                            <input type="text" placeholder="Enter name" class="contact__form-input">
+                            <input type="text" placeholder="Enter your name" class="contact__form-input">
                         </div>
 
                         <div class="contact__form-div">
                             <label for="" class="contact__form-tag">Mail</label>
-                            <input type="text" placeholder="Enter email" class="contact__form-input">
+                            <input type="email" placeholder="Enter your email" class="contact__form-input">
                         </div>
 
                         <div class="contact__form-div contact__form-area">
                             <label for="" class="contact__form-tag">Message</label>
-                            <textarea name="" id="" cols="30" rows="10" placeholder="Write your Message"
-                                class="contact__form-input "></textarea>
+                            <textarea name="" id="" cols="30" rows="10" placeholder="Write your message"
+                                class="contact__form-input"></textarea>
                         </div>
-
 
                         <button class="button">
                             Send Message
+                            <i class='bx bx-send button__icon'></i>
                         </button>
                     </form>
-
                 </div>
             </div>
         </section>
@@ -195,12 +219,11 @@ Every day is a new opportunity to learn, grow, and create something better.
     <!--=============== FOOTER ===============-->
     <footer class="footer">
         <div class="footer__container container">
-            <h1 class="footer__title">Hailee</h1>
+            <h1 class="footer__title">Sudeep</h1>
 
             <ul class="footer__list">
-
                 <li class="footer__item">
-                    <a href="#" class="footer__link">Home</a>
+                    <a href="#home" class="footer__link">Home</a>
                 </li>
                 <li class="footer__item">
                     <a href="#about" class="footer__link">About</a>
@@ -213,42 +236,32 @@ Every day is a new opportunity to learn, grow, and create something better.
             <ul class="footer__social">
                 <li class="footer__social-item">
                     <a href="#" target="_blank" class="footer__social-link">
-                        <i class='bx bxl-facebook footer__social-icon'></i>
+                        <i class='bx bxl-instagram'></i>
                     </a>
                 </li>
                 <li class="footer__social-item">
-                    <a href="#" target="_blank" class="footer__social-link">
-                        <i class='bx bxl-twitter footer__social-icon'></i>
+                    <a href="https://www.snapchat.com/add/ssudeep20238055?share_id=U2DXuGX28Ek&locale=en-IN" target="_blank" class="footer__social-link">
+                        <i class='bx bxl-snapchat'></i>
                     </a>
                 </li>
                 <li class="footer__social-item">
-                    <a href="#" target="_blank" class="footer__social-link">
-                        <i class='bx bxl-linkedin footer__social-icon'></i>
-                    </a>
-                </li>
-                <li class="footer__social-item">
-                    <a href="#" target="_blank" class="footer__social-link">
-                        <i class='bx bxl-instagram footer__social-icon'></i>
+                    <a href="https://www.youtube.com/@KARUNADU_ESPORTS" target="_blank" class="footer__social-link">
+                        <i class='bx bxl-youtube'></i>
                     </a>
                 </li>
             </ul>
 
             <span class="footer__copy">
-                &#169; 2022 S44WN. All rights reserved.
+                &#169; 2023 Sudeep Hv. All rights reserved.
             </span>
         </div>
     </footer>
 
     <!--=============== SCROLLREVEAL ===============-->
-
-    <!-- <script src="assets/js/scrollreveal.min.js"></script> -->
-    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--=============== SWIPER JS ===============-->
     <script src="assets/js/swiper-bundle.min.js"></script>
-
-    <!--=============== MIXITUP FILTER ===============-->
-    <script src="assets/js/mixitup.min.js"></script>
 
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
