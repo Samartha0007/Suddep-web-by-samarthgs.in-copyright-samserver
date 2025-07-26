@@ -21,6 +21,47 @@
 
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Add these styles for the liked state */
+        .button--liked {
+            background-color: rgba(255, 59, 48, 0.2);
+            border-color: #ff3b30;
+            box-shadow: 0 0 10px rgba(255, 59, 48, 0.5);
+        }
+        
+        .button--liked i {
+            color: #ff3b30;
+        }
+        
+        /* Remove footer background */
+        .footer {
+            background-color: transparent;
+            padding: 2rem 0;
+        }
+        
+        .footer__copy {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .developer-credit {
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            color: var(--text-color-light);
+        }
+        
+        .developer-credit a {
+            color: var(--title-color);
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        
+        .developer-credit a:hover {
+            color: var(--first-color);
+            text-decoration: underline;
+        }
+    </style>
 
     <title>Sudeep Hv</title>
 </head>
@@ -159,6 +200,10 @@
             <span class="footer__copy">
                 &#169; 2023 Sudeep Hv. All rights reserved.
             </span>
+            
+            <div class="developer-credit">
+                Designed and developed by <a href="https://samarthags.in" target="_blank">Samarth GS</a>
+            </div>
         </div>
     </footer>
 
@@ -230,6 +275,9 @@
             // Store in local storage to prevent multiple likes    
             localStorage.setItem("hasLiked", "true");    
 
+            // Add liked class to make it glow permanently
+            likeButton.classList.add("button--liked");
+
             // Create floating heart animation    
             const heart = document.createElement("div");    
             heart.classList.add("floating-heart");    
@@ -282,6 +330,13 @@
                 ripple.remove();    
             }, 600); // Remove after animation    
         }
+
+        // Check if already liked on page load and apply the liked style
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem("hasLiked") === "true") {
+                document.getElementById("likeButton").classList.add("button--liked");
+            }
+        });
 
         // Attach click event to like button
         document.getElementById('likeButton').addEventListener('click', likePost);
