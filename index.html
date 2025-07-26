@@ -92,14 +92,24 @@
             border: 1px solid rgba(255,255,255,0.2);
         }
         
-        /* Dark theme styles */
+        /* Light theme colors (default) */
+        :root {
+            --first-color: #a789d4;
+            --title-color: #2a2a2a;
+            --text-color: #4a4a4a;
+            --text-color-light: #7a7a7a;
+            --body-color: #ffffff;
+            --container-color: #f9f9f9;
+        }
+        
+        /* Dark theme colors */
         body.dark-theme {
             --first-color: #a789d4;
             --title-color: #f1f1f1;
             --text-color: #d1d1d1;
             --text-color-light: #a1a1a1;
-            --body-color: #1a1a1a;
-            --container-color: #252525;
+            --body-color: #121212;
+            --container-color: #1e1e1e;
         }
         
         /* Theme button */
@@ -112,6 +122,13 @@
         
         .change-theme:hover {
             color: var(--first-color);
+        }
+        
+        /* Apply background color to body */
+        body {
+            background-color: var(--body-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
         }
     </style>
 
@@ -256,7 +273,8 @@
                 <a href="https://www.youtube.com/@KARUNADU_ESPORTS" class="footer__social-link"><i class='bx bxl-youtube'></i></a>
             </ul>
 
-           
+            
+            
             <div class="developer-credit">
                 Designed and developed by <a href="https://samarthags.in" target="_blank">Samarth GS</a>
             </div>
