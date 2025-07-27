@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== FAVICON ===============-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="assets/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="assets/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#a789d4">
+
+    <!--=============== BOXICONS ===============-->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Add these styles for the liked state */
+        .button--liked {
+            background-color: rgba(255, 59, 48, 0.2);
+            border-color: #ff3b30;
+            box-shadow: 0 0 10px rgba(255, 59, 48, 0.5);
+        }
+
+        .button--liked i {
+            color: #ff3b30;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: transparent;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer__social {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer__social-link {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            transition: 0.3s;
+        }
+
+        .footer__social-link:hover {
+            color: var(--first-color);
+            transform: translateY(-3px);
+        }
+
+        .footer__copy {
+            font-size: 0.9rem;
+            color: var(--text-color-light);
+        }
+
+        .developer-credit {
+            font-size: 0.8rem;
+            color: var(--text-color-light);
+        }
+
+        .developer-credit a {
+            color: var(--title-color);
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .developer-credit a:hover {
+            color: var(--first-color);
+            text-decoration: underline;
+        }
+
+        /* Email contact card */
+        .contact__card-email {
+            background: linear-gradient(135deg, rgba(167,137,212,0.1) 0%, rgba(255,255,255,0.1) 100%);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Dark theme colors (default) */
+        :root {
+            --first-color: #a789d4;
+            --title-color: #f1f1f1;
+            --text-color: #d1d1d1;
+            --text-color-light: #a1a1a1;
+            --body-color: #121212;
+            --container-color: #1e1e1e;
+        }
+
+        /* Light theme colors */
+        body.light-theme {
+            --first-color: #8a63c5;
+            --title-color: #2a2a2a;
+            --text-color: #4a4a4a;
+            --text-color-light: #7a7a7a;
+            --body-color: #ffffff;
+            --container-color: #f5f5f5;
+        }
+
+        /* Theme button */
+        .change-theme {
+            font-size: 1.25rem;
+            color: var(--title-color);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .change-theme:hover {
+            color: var(--first-color);
+        }
+
+        /* Apply background color to body */
+        body {
+            background-color: var(--body-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+    </style>
+
+    <title>Sudeep Hv</title>
+</head>
+
+<body class="dark-theme">
+    <!--=============== HEADER ===============-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Sudeep</a>
+
+            <!-- Theme change button - starts as moon (dark theme active) -->
+            <i class='bx bx-sun change-theme' id="theme-button"></i>
+        </nav>
+    </header>
+
+    <!--=============== MAIN ===============-->
+    <main class="main">
+        <!--=============== HOME ===============-->
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <div class="home__data">
+                    <span class="home__greeting">Hello, I'm</span>
+                    <h1 class="home__name">Sudeep Hv</h1>
+                    <h3 class="home__education">Content Creator & Gamer</h3>
+
+                    <div class="home__buttons">
+                        <button id="likeButton" class="button button--ghost">
+                            <i class='bx bxs-like'></i> <span id="likeCount">0</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="home__social">
+                    <a href="https://www.instagram.com/_.sudeep.h__v?igsh=MTV5ZmFwNDN6ZTN6Ng==" target="_blank" class="home__social-link">
+                        <i class='bx bxl-instagram'></i>
+                    </a>
+                    <a href="https://www.snapchat.com/add/ssudeep20238055?share_id=U2DXuGX28Ek&locale=en-IN" target="_blank" class="home__social-link">
+                        <i class='bx bxl-snapchat'></i>
+                    </a>
+                    <a href="https://www.youtube.com/@KARUNADU_ESPORTS" target="_blank" class="home__social-link">
+                        <i class='bx bxl-youtube'></i>
+                    </a>
+                </div>
+
+                <a href="#about" class="home__scroll">
+                    <i class='bx bx-mouse home__scroll-icon'></i>
+                    <span class="home__scroll-name">Scroll Down</span>
+                </a>
+            </div>
+        </section>
+
+        <!--=============== ABOUT ===============-->
+        <section class="about section" id="about">
+            <span class="section__subtitle">My Intro</span>
+            <h2 class="section__title">About Me</h2>
+
+            <div class="about__container container grid">
+                <img src="sudiatsamserver.jpg" alt="Sudeep Hv" class="about__img">
+
+                <div class="about__data">
+                    <div class="about__info">
+                        <div class="about__box">
+                            <i class='bx bxs-user-plus about__icon'></i>
+                            <h3 class="about__title">1,500+</h3>
+                            <span class="about__subtitle">Subscribers</span>
+                        </div>
+
+                        <div class="about__box">
+                            <i class='bx bxs-like about__icon'></i>
+                            <h3 class="about__title">15,000+</h3>
+                            <span class="about__subtitle">Likes</span>
+                        </div>
+
+                        <div class="about__box">
+                            <i class='bx bxs-show about__icon'></i>
+                            <h3 class="about__title">300,000+</h3>
+                            <span class="about__subtitle">Views</span>
+                        </div>
+                    </div>
+
+                    <p class="about__description">
+                        Hello, I'm Sudeep, a 17-year-old student and content creator from Shimoga, Karnataka. I'm passionate about gaming, video editing, and building my YouTube community. Through my channel KARUNADU ESPORTS, I create engaging gaming content while balancing my studies. Every day is an opportunity to improve my skills and connect with my growing audience.
+                    </p>
+
+                    <a href="https://www.youtube.com/@KARUNADU_ESPORTS?sub_confirmation=1" target="_blank" class="button about__button-contact">
+                        Subscribe on YouTube <i class='bx bxl-youtube'></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!--=============== CONTACT ===============-->
+        <section class="contact section" id="contact">
+            <span class="section__subtitle">Get in touch</span>
+            <h2 class="section__title">Contact Me</h2>
+
+            <div class="contact__container container grid">
+                <div class="contact__content">
+                    <h3 class="contact__title">Connect with me</h3>
+
+                    <div class="contact__info">
+                        <div class="contact__card">
+                            <i class='bx bxl-instagram contact__card-icon'></i>
+                            <h3 class="contact__card-title">Instagram</h3>
+                            <span class="contact__card-data">@_.sudeep.h__v</span>
+                            <a href="https://www.instagram.com/_.sudeep.h__v?igsh=MTV5ZmFwNDN6ZTN6Ng==" target="_blank" class="contact__button">
+                                Follow <i class='bx bx-right-arrow-alt'></i>
+                            </a>
+                        </div>
+
+                        <div class="contact__card">
+                            <i class='bx bxl-snapchat contact__card-icon'></i>
+                            <h3 class="contact__card-title">Snapchat</h3>
+                            <span class="contact__card-data">@ssudeep20238055</span>
+                            <a href="https://www.snapchat.com/add/ssudeep20238055" target="_blank" class="contact__button">
+                                Add Me <i class='bx bx-right-arrow-alt'></i>
+                            </a>
+                        </div>
+
+                        <div class="contact__card contact__card-email">
+                            <i class='bx bxs-envelope contact__card-icon'></i>
+                            <h3 class="contact__card-title">Email</h3>
+                            <span class="contact__card-data">Sudi57593@gmail.com</span>
+                            <a href="mailto:Sudi57593@gmail.com" class="contact__button">
+                                Email Me <i class='bx bx-right-arrow-alt'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--=============== FOOTER ===============-->
+    <footer class="footer">
+        <div class="footer__container container">
+            <ul class="footer__social">
+                <a href="https://www.instagram.com/_.sudeep.h__v?igsh=MTV5ZmFwNDN6ZTN6Ng==" class="footer__social-link"><i class='bx bxl-instagram'></i></a>
+                <a href="https://www.snapchat.com/add/ssudeep20238055" class="footer__social-link"><i class='bx bxl-snapchat'></i></a>
+                <a href="https://www.youtube.com/@KARUNADU_ESPORTS" class="footer__social-link"><i class='bx bxl-youtube'></i></a>
+            </ul>
+
+
+
+            <div class="developer-credit">
+                Designed and developed by <a href="https://samarthags.in" target="_blank">Samarth GS</a>
+            </div>
+        </div>
+    </footer>
+
+    <!--=============== SCROLLREVEAL ===============-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--=============== FIREBASE LIKE SYSTEM ===============-->
+    <script type="module">    
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";    
+        import { getDatabase, ref, onValue, runTransaction, get } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-database.js";    
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";    
+
+        // Your Firebase configuration    
+        const firebaseConfig = {
+          apiKey: "AIzaSyC4xEwklz8JBGLggZNAz_G5ABiJCu3Qugo",
+          authDomain: "jggkhg-69fd4.firebaseapp.com",
+          databaseURL: "https://jggkhg-69fd4-default-rtdb.firebaseio.com",
+          projectId: "jggkhg-69fd4",
+          storageBucket: "jggkhg-69fd4.firebasestorage.app",
+          messagingSenderId: "849901272295",
+          appId: "1:849901272295:web:f2e109adca7022fc187642",
+          measurementId: "G-37QG31LX9C"
+        };
+
+        // Initialize Firebase    
+        const app = initializeApp(firebaseConfig);    
+        const db = getDatabase(app);    
+        const analytics = getAnalytics(app);    
+
+        // Reference to the likes node    
+        const likeRef = ref(db, "likes");    
+
+        // Format number with commas
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Fetch initial like count before setting up real-time updates    
+        get(likeRef).then((snapshot) => {    
+            if (snapshot.exists()) {    
+                document.getElementById("likeCount").innerText = formatNumber(snapshot.val());    
+            }    
+        });    
+
+        // Listen for changes and update the like count    
+        onValue(likeRef, (snapshot) => {    
+            const likes = snapshot.val();    
+            if (likes !== null) {    
+                document.getElementById("likeCount").innerText = formatNumber(likes);    
+            }    
+        });    
+
+        window.likePost = function () {    
+            const likeButton = document.getElementById("likeButton");    
+            const likeCountSpan = document.getElementById("likeCount");    
+            let hasLiked = localStorage.getItem("hasLiked") === "true";    
+
+            if (hasLiked) {    
+                // Shake animation if already liked    
+                likeButton.classList.add("shake");    
+                setTimeout(() => {    
+                    likeButton.classList.remove("shake");    
+                }, 500);    
+
+                alert("You've already liked this! ❤️ Thank you for your support! 😊");    
+                return;    
+            }    
+
+            // Store in local storage to prevent multiple likes    
+            localStorage.setItem("hasLiked", "true");    
+
+            // Add liked class to make it glow permanently
+            likeButton.classList.add("button--liked");
+
+            // Create floating heart animation    
+            const heart = document.createElement("div");    
+            heart.classList.add("floating-heart");    
+            heart.innerHTML = "+1 ❤️‍🔥";    
+
+            // Position the heart above the button    
+            const rect = likeButton.getBoundingClientRect();    
+            heart.style.left = `${rect.left + rect.width / 2}px`;    
+            heart.style.top = `${rect.top - 10}px`;    
+
+            document.body.appendChild(heart);    
+
+            setTimeout(() => {    
+                heart.remove();    
+            }, 1500);    
+
+            // Trigger ripple effect on every click    
+            showRippleEffect(likeButton);    
+
+            // Disable button temporarily    
+            likeButton.disabled = true;    
+
+            // Update Firebase like count    
+            runTransaction(likeRef, (currentLikes) => {    
+                return (currentLikes || 0) + 1;    
+            })    
+            .then(({ snapshot }) => {    
+                likeCountSpan.textContent = formatNumber(snapshot.val());    
+                likeButton.disabled = false;    
+            })    
+            .catch((error) => {    
+                console.error("Error updating likes:", error);    
+                likeButton.disabled = false;    
+            });    
+        };    
+
+        // Function to create ripple effect    
+        function showRippleEffect(button) {    
+            const ripple = document.createElement("span");    
+            ripple.classList.add("ripple");    
+
+            // Get button position    
+            const rect = button.getBoundingClientRect();    
+            ripple.style.left = `${rect.width / 2}px`;    
+            ripple.style.top = `${rect.height / 2}px`;    
+
+            button.appendChild(ripple);    
+
+            setTimeout(() => {    
+                ripple.remove();    
+            }, 600); // Remove after animation    
+        }
+
+        // Check if already liked on page load and apply the liked style
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem("hasLiked") === "true") {
+                document.getElementById("likeButton").classList.add("button--liked");
+            }
+        });
+
+        // Attach click event to like button
+        document.getElementById('likeButton').addEventListener('click', likePost);
+    </script>    
+
+    <!--=============== MAIN JS ===============-->
+    <script>
+        // SCROLL REVEAL ANIMATION
+        const sr = ScrollReveal({
+            origin: 'top',
+            distance: '60px',
+            duration: 2500,
+            delay: 400,
+        });
+
+        sr.reveal('.home__data');
+        sr.reveal('.home__social, .home__scroll', {delay: 600, origin: 'bottom'});
+        sr.reveal('.section__subtitle, .section__title', {origin: 'left'});
+        sr.reveal('.about__img', {origin: 'right'});
+        sr.reveal('.about__info', {delay: 500});
+        sr.reveal('.about__description, .about__button-contact', {delay: 600});
+        sr.reveal('.contact__content', {interval: 100});
+
+        // THEME TOGGLE - FIXED VERSION
+        const themeButton = document.getElementById('theme-button');
+
+        // Set dark theme as default
+        document.body.classList.add('dark-theme');
+        themeButton.classList.add('bx-sun'); // Sun icon indicates dark theme is active
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('selected-theme');
+        if (savedTheme === 'light') {
+            document.body.classList.remove('dark-theme');
+            document.body.classList.add('light-theme');
+            themeButton.classList.remove('bx-sun');
+            themeButton.classList.add('bx-moon');
+        }
+
+        // Theme toggle functionality
+        themeButton.addEventListener('click', () => {
+            // Toggle between themes
+            if (document.body.classList.contains('dark-theme')) {
+                document.body.classList.remove('dark-theme');
+                document.body.classList.add('light-theme');
+                themeButton.classList.remove('bx-sun');
+                themeButton.classList.add('bx-moon');
+                localStorage.setItem('selected-theme', 'light');
+            } else {
+                document.body.classList.remove('light-theme');
+                document.body.classList.add('dark-theme');
+                themeButton.classList.remove('bx-moon');
+                themeButton.classList.add('bx-sun');
+                localStorage.setItem('selected-theme', 'dark');
+            }
+        });
+    </script>
+</body>
+
+</html>
